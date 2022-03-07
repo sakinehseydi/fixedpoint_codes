@@ -88,8 +88,8 @@ print(x_test.shape[0], "test samples")
 y_train = tf.keras.utils.to_categorical(y_train, num_classes)
 y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
-L = 8
-F =4
+L = 2
+F =1
 model = tf.keras.Sequential()
 model.add(layers.InputLayer(input_shape=input_shape))
 #model.add(layers.Conv2D(32, kernel_size=(3, 3), activation="relu"))
@@ -104,8 +104,7 @@ model.add(Dense_FP(num_classes,Length=L,Fr=F))
 model.add(layers.Softmax())
 model.summary()
 batch_size = 256
-epochs = 20
-
+epochs =50
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
